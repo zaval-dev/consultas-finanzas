@@ -106,6 +106,13 @@
                                         <input type="number" id="capital_trabajo" class="bg-transparent cuenta-input w-full px-2 py-1 border rounded-md" step="0.01" placeholder="Completa aquí..." required>
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td class="border px-4 py-2">Inventarios</td>
+                                    <td class="border px-4 py-2">Inventarios</td>
+                                    <td class="border px-4 py-2">
+                                        <input type="number" id="inventarios" class="bg-transparent cuenta-input w-full px-2 py-1 border rounded-md" step="0.01" placeholder="Completa aquí..." required>
+                                    </td>
+                                </tr>
 
                                 <!-- Gestión -->
                                 <tr>
@@ -171,10 +178,10 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="border px-4 py-2">Activo Corriente</td>
-                                    <td class="border px-4 py-2">Total de activos corrientes</td>
+                                    <td class="border px-4 py-2">Pasivo</td>
+                                    <td class="border px-4 py-2">Total de pasivos</td>
                                     <td class="border px-4 py-2">
-                                        <input type="number" id="activo_corriente" class="bg-transparent cuenta-input w-full px-2 py-1 border rounded-md" step="0.01" placeholder="Completa aquí..." required>
+                                        <input type="number" id="pasivo" class="bg-transparent cuenta-input w-full px-2 py-1 border rounded-md" step="0.01" placeholder="Completa aquí..." required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -196,7 +203,7 @@
                         </table>
 
                         <div class="mt-6">
-                            <button onclick="calcularRatios()" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
+                            <button id="confirm-button" onclick="calcularRatios()" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
                                 Calcular Ratios
                             </button>
                         </div>
@@ -228,16 +235,34 @@
         const inputs = document.querySelectorAll('.cuenta-input');
 
         function calcularRatios() {
+            console.log('Calculando...');
+            const activoCorriente = parseFloat(document.getElementById('activo_corriente').value);
+            const pasivoCorriente = parseFloat(document.getElementById('pasivo_corriente').value);
+            const inventarios = parseFloat(document.getElementById('inventarios').value);
+            const ventasNetas = parseFloat(document.getElementById('ventas_netas').value);
+            const promedioActivos = parseFloat(document.getElementById('promedio_activos').value);
+            const ventasTotales = parseFloat(document.getElementById('ventas_totales').value);
+            const activoFijoNeto = parseFloat(document.getElementById('activo_fijo_neto').value);
+            // const capitalTrabajo = activoCorriente - pasivoCorriente;  // Calculado automáticamente
+            const utilidadOperativa = parseFloat(document.getElementById('utilidad_operativa').value);
+            const gastosFinancieros = parseFloat(document.getElementById('gastos_financieros').value);
+            const patrimonio = parseFloat(document.getElementById('patrimonio').value);
+            const activoNoCorriente = parseFloat(document.getElementById('activo_no_corriente').value);
+            const utilidadNeta = parseFloat(document.getElementById('utilidad_neta').value);
+            const costoVentas = parseFloat(document.getElementById('costos_ventas').value);
+            const activoReal = parseFloat(document.getElementById('activo_real').value);
+            const pasivo = parseFloat(document.getElementById('pasivo').value);
+
             let contenidoCompleto = true;
             inputs.forEach(input => {
                 if(input.value === '') {
                     contenidoCompleto = false;
                 }
             });
-            if(!contenidoCompleto)
+            if(!contenidoCompleto){
                 alert('Complete todos las cuentas contables.')
                 return;
-
+            }
             /*
                 LIQUIDEZ
             */
@@ -271,6 +296,8 @@
             // 8. Cobertura del Activo No Corriente = Patrimonio / Activo No Corriente
             const coberturaActivoNoCorriente = patrimonio / activoNoCorriente;
 
+            const indiceDeSolvenciaTotal = activoReal / pasivo;
+
             /*
               Rentabilidad
             */
@@ -282,6 +309,27 @@
             const rentabilidadMargenComercial = (ventasNetas - costoVentas) / ventasNetas;
 
             const rentabilidadNetaSobreLasVentas = utilidadNeta / ventasNetas;
+            console.log('Terminar de calcular');
+
+            const resultadosDiv = document.getElementById('resultados');
+            resultadosDiv.innerHTML = `
+                <h3 class="text-xl font-bold mt-6">Resultados de los Ratios</h3>
+                <p><strong>Liquidez General:</strong> ${liquidezGeneral.toFixed(2)}</p>
+                <p><strong>Capital de Trabajo:</strong> ${capitalDeTrabajo.toFixed(2)}</p>
+                <p><strong>Prueba Ácida:</strong> ${pruebaAcida.toFixed(2)}</p>
+                <br/>
+                <p><strong>Rotación de Activos:</strong> ${rotacionActivos.toFixed(2)}</p>
+                <p><strong>Índice de Rotación de Activo Fijo:</strong> ${rotacionActivoFijo.toFixed(2)}</p>
+                <p><strong>Índice de Rotación del Capital de Trabajo:</strong> ${rotacionCapitalTrabajo.toFixed(2)}</p>
+                <br/>
+                <p><strong>Cobertura de Gastos de Interés:</strong> ${coberturaGastosInteres.toFixed(2)}</p>
+                <p><strong>Cobertura del Activo No Corriente:</strong> ${coberturaActivoNoCorriente.toFixed(2)}</p>
+                <p><strong>Índice de solvencia Total:</strong> ${indiceDeSolvenciaTotal.toFixed(2)}</p>
+                <br/>
+                <p><strong>Rentabilidad sobre Capital Propio:</strong> ${rentabilidadCapitalPropio.toFixed(2)}</p>
+                <p><strong>Rentabilidad Margen Comercial:</strong> ${rentabilidadMargenComercial.toFixed(2)}</p>
+                <p><strong>Rentabilidad Neta sobre las Ventas:</strong> ${rentabilidadNetaSobreLasVentas.toFixed(2)}</p>
+            `;
         }
     </script>
 </x-app-layout>
