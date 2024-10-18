@@ -16,10 +16,10 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                     <x-nav-link href="{{ route('estrategias') }}" :active="request()->routeIs('estrategias')">
-                        {{ __('Estrategias') }}
+                        {{ __('Fórmulas') }}
                     </x-nav-link>
                     <x-nav-link href="{{ route('riesgos') }}" :active="request()->routeIs('riesgos')">
-                        {{ __('Riesgos') }}
+                        {{ __('Ratios') }}
                     </x-nav-link>
                 </div>
             </div>

@@ -74,10 +74,8 @@
                                     src="/img/estrategias.webp" alt="">
                                 <div class="flex flex-col justify-between p-4 leading-normal">
                                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                        Estrategias</h5>
-                                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Se exploran aspectos
-                                        clave como la formulación y selección de estrategias, utilizando herramientas
-                                        esenciales que permiten tomar decisiones fundamentadas en entornos inciertos.
+                                        6 Fórmulas Fundamentales</h5>
+                                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Facilitan la toma de decisiones estratégicas al brindar una visión clara del rendimiento financiero y la gestión eficiente de recursos.
                                     </p>
                                 </div>
                             </a>
@@ -89,10 +87,8 @@
                                     src="/img/riesgos.webp" alt="">
                                 <div class="flex flex-col justify-between p-4 leading-normal">
                                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                        Riesgos</h5>
-                                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">La gestión de riesgos
-                                        asegura la identificación, evaluación y monitoreo continuo de riesgos,
-                                        preparando a la empresa para mitigar impactos potenciales.</p>
+                                        Cálculo de Ratios</h5>
+                                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Permiten a gerentes y analistas tomar decisiones informadas e identificar riesgos para el crecimiento sostenible de la empresa.</p>
                                 </div>
                             </a>
                         </div>

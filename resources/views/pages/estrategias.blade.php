@@ -404,7 +404,7 @@
                                             <div class="md:row-start-2"><button type="submit" class="mt-4 p-2 bg-indigo-600 text-white rounded w-full md:mt-7">Calcular</button></div>
                                             <div class="flex flex-col md:col-span-4">
                                                 <label for="resultado1" class="text-gray-700 dark:text-gray-400">Resultado:</label>
-                                                <input type="number" id="resultado1" name="resultado" class="mt-1 p-2 border bg-white rounded" readonly>
+                                                <input type="number" id="resultado1" name="resultado" class="mt-1 resultado p-2 border bg-white rounded" readonly>
                                             </div>
                                         </div>
                                     </form>
@@ -470,7 +470,7 @@
                                             <div class="md:row-start-2"><button type="submit" class="mt-4 p-2 bg-indigo-600 text-white rounded w-full md:mt-7">Calcular</button></div>
                                             <div class="flex flex-col md:col-span-4">
                                                 <label for="resultado2" class="text-gray-700 dark:text-gray-400">Resultado:</label>
-                                                <input type="number" id="resultado2" name="resultado2" class="mt-1 p-2 border bg-white rounded" readonly>
+                                                <input type="number" id="resultado2" name="resultado2" class="mt-1 resultado p-2 border bg-white rounded" readonly>
                                             </div>
                                         </div>
                                     </form>
@@ -548,7 +548,7 @@
                                             </div>
                                             <div class="flex flex-col md:col-span-3">
                                                 <label for="resultado3" class="text-gray-700 dark:text-gray-400">Resultado:</label>
-                                                <input type="number" id="resultado3" name="resultado3" class="mt-1 p-2 border bg-white rounded" readonly>
+                                                <input type="number" id="resultado3" name="resultado3" class="mt-1 resultado p-2 border bg-white rounded" readonly>
                                             </div>
                                         </div>
                                     </form>
@@ -625,7 +625,7 @@
                                             <div class="md:col-start-4"><button type="submit" class="mt-4 p-2 bg-indigo-600 text-white rounded w-full md:mt-7">Calcular</button></div>
                                             <div class="flex flex-col md:col-span-4">
                                                 <label for="resultado4" class="text-gray-700 dark:text-gray-400">Resultado:</label>
-                                                <input type="number" id="resultado4" name="resultado4" class="mt-1 p-2 border bg-white rounded" readonly>
+                                                <input type="number" id="resultado4" name="resultado4" class="mt-1 resultado p-2 border bg-white rounded" readonly>
                                             </div>
                                         </div>
                                     </form>
@@ -702,7 +702,7 @@
                                             <div class="md:col-start-4"><button type="submit" class="mt-4 p-2 bg-indigo-600 text-white rounded w-full md:mt-7">Calcular</button></div>
                                             <div class="flex flex-col md:col-span-4">
                                                 <label for="resultado5" class="text-gray-700 dark:text-gray-400">Resultado:</label>
-                                                <input type="number" id="resultado5" name="resultado5" class="mt-1 p-2 border bg-white rounded" readonly>
+                                                <input type="number" id="resultado5" name="resultado5" class="mt-1 resultado p-2 border bg-white rounded" readonly>
                                             </div>
                                         </div>
                                     </form>
@@ -780,7 +780,7 @@
                                             </div>
                                             <div class="flex flex-col md:col-span-3">
                                                 <label for="resultado6" class="text-gray-700 dark:text-gray-400">Resultado:</label>
-                                                <input type="number" id="resultado6" name="resultado6" class="mt-1 p-2 border bg-white rounded" readonly>
+                                                <input type="number" id="resultado6" name="resultado6" class="mt-1 resultado p-2 border bg-white rounded" readonly>
                                             </div>
                                         </div>
                                     </form>
@@ -794,5 +794,27 @@
     </div>
 
     <script src="{{asset('js/calculos.js')}}"></script>
+    <script>
+        const inputs = document.querySelectorAll('input');
+        const selects = document.querySelectorAll('select');
+        const options = document.querySelectorAll('option');
+        const resultados = document.querySelectorAll('.resultado');
+        inputs.forEach(element => {
+            element.classList.add('bg-transparent');
+            element.classList.add('text-white');
+        });
+        selects.forEach(element => {
+            element.classList.add('bg-transparent');
+            element.classList.add('text-white');
+        });
+        options.forEach(element => {
+            element.classList.add('bg-gray-700');
+        });
+        resultados.forEach(element => {
+            element.classList.remove('bg-white');
+            element.classList.add('bg-gray-800');
+            element.classList.add('text-white');
+        });
+    </script>
 
 </x-app-layout>
