@@ -5,7 +5,7 @@
         </h2>
         <x-chat-g-p-t />
     </x-slot>
-    <style>
+    {{-- <style>
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -292,6 +292,131 @@
         </div>
 
 
+    </div> --}}
+
+    <style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .card:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .card:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .card:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        .card:nth-child(4) {
+            animation-delay: 0.8s;
+        }
+
+        .card:nth-child(5) {
+            animation-delay: 1s;
+        }
+
+        .card:nth-child(6) {
+            animation-delay: 1.2s;
+        }
+    </style>
+
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg">
+                {{-- <x-welcome /> --}}
+                <div
+                    class="p-6 lg:p-8 bg-white dark:bg-gray-800 dark:bg-gradient-to-bl dark:from-gray-700/50 dark:via-transparent border-b border-gray-200 dark:border-gray-700">
+                    <section id="cards-section" class="my-8">
+                        <div class="grid gap-6">
+                            <!-- Card 1 -->
+                            <a href="{{ route('estrategias') }}" :active="request() - > routeIs('estrategias')"
+                                class="card flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="flex flex-col justify-between p-4 leading-normal">
+                                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                        Estrategias</h5>
+                                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Se exploran aspectos
+                                        clave como la formulación y selección de estrategias, utilizando herramientas
+                                        esenciales que permiten tomar decisiones fundamentadas en entornos inciertos.
+                                    </p>
+                                </div>
+                            </a>
+                            <a href="{{ route('estrategias') }}" :active="request() - > routeIs('estrategias')"
+                                class="card flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="flex flex-col justify-between p-4 leading-normal">
+                                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                        Estrategias</h5>
+                                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Se exploran aspectos
+                                        clave como la formulación y selección de estrategias, utilizando herramientas
+                                        esenciales que permiten tomar decisiones fundamentadas en entornos inciertos.
+                                    </p>
+                                </div>
+                            </a>
+                            <a href="{{ route('estrategias') }}" :active="request() - > routeIs('estrategias')"
+                                class="card flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="flex flex-col justify-between p-4 leading-normal">
+                                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                        Estrategias</h5>
+                                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Se exploran aspectos
+                                        clave como la formulación y selección de estrategias, utilizando herramientas
+                                        esenciales que permiten tomar decisiones fundamentadas en entornos inciertos.
+                                    </p>
+                                </div>
+                            </a>
+                            <a href="{{ route('estrategias') }}" :active="request() - > routeIs('estrategias')"
+                                class="card flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="flex flex-col justify-between p-4 leading-normal">
+                                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                        Estrategias</h5>
+                                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Se exploran aspectos
+                                        clave como la formulación y selección de estrategias, utilizando herramientas
+                                        esenciales que permiten tomar decisiones fundamentadas en entornos inciertos.
+                                    </p>
+                                </div>
+                            </a>
+                            <a href="{{ route('estrategias') }}" :active="request() - > routeIs('estrategias')"
+                                class="card flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="flex flex-col justify-between p-4 leading-normal">
+                                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                        Estrategias</h5>
+                                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Se exploran aspectos
+                                        clave como la formulación y selección de estrategias, utilizando herramientas
+                                        esenciales que permiten tomar decisiones fundamentadas en entornos inciertos.
+                                    </p>
+                                </div>
+                            </a>
+                            <a href="{{ route('estrategias') }}" :active="request() - > routeIs('estrategias')"
+                                class="card flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="flex flex-col justify-between p-4 leading-normal">
+                                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                        Estrategias</h5>
+                                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Se exploran aspectos
+                                        clave como la formulación y selección de estrategias, utilizando herramientas
+                                        esenciales que permiten tomar decisiones fundamentadas en entornos inciertos.
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
     </div>
 
 </x-app-layout>
