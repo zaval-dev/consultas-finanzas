@@ -63,77 +63,85 @@
 </div>
 
 <script>
-    document.getElementById('compose-btn').addEventListener('click', function() {
+    function abrirModal() {
         document.getElementById('compose-modal').classList.remove('translate-y-full');
         document.getElementById('compose-modal').classList.add('mb-4');
-    });
+    }
 
-    document.getElementById('close-modal').addEventListener('click', function() {
+    function cerrarModal() {
         document.getElementById('compose-modal').classList.add('translate-y-full');
         document.getElementById('compose-modal').classList.remove('mb-4');
-    });
-
-    document.getElementById('send-btn').addEventListener('click', function() {
-        document.getElementById('response').setAttribute('placeholder', "Procesando su consulta...");
-        let rubro = document.getElementById('rubro-select').value;
-        let tema = document.getElementById('tema-select').value;
-        let query = document.getElementById('query').value;
-
-        const divOptions = document.getElementById('query-options');
-        const textQuery = document.getElementById('query');
-
-        if (!textQuery.classList.contains('hidden') && query.trim() === '') {
-            alert('El campo de consulta es requerido.');
-            return;
-        }
-
-        if (!divOptions.classList.contains('hidden')) {
-            if (rubro === '') {
-                alert('El rubro es requerido.');
-                return;
-            }
-            if (tema === '') {
-                alert('El tema es requerido.');
-                return;
-            }
-        }
-
-        fetch('{{ route('ask.gpt') }}', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': '{{ csrf_token() }}'
-            },
-            body: JSON.stringify({
-                rubro: rubro,
-                tema: tema,
-                query: query
-            })
-        })
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById('response').value = data.response;
-        })
-        .catch(error => console.error('Error:', error));
-    });
-    // const toggleButton = document.getElementById('toggle-button');
-    function personalizarConsulta() {
-        const divOptions = document.getElementById('query-options');
-        const TextQuery = document.getElementById('query');
-        const span = document.getElementById('toggle-span');
-
-        if(divOptions.classList.contains('hidden')) {
-            divOptions.classList.remove('hidden');
-            TextQuery.classList.add('hidden');
-            span.classList.remove('dark:text-gray-200');
-            span.classList.add('dark:text-gray-500');
-        }else {
-            if(TextQuery.classList.contains('hidden')) {
-                TextQuery.classList.remove('hidden');
-                divOptions.classList.add('hidden');
-                span.classList.remove('dark:text-gray-500');
-                span.classList.add('dark:text-gray-200');
-            }
-        }
     }
+
+    document.getElementById('compose-btn').addEventListener('click', () => {
+        abrirModal();
+    });
+
+    document.getElementById('close-modal').addEventListener('click', () => {
+        cerrarModal();
+    });
+
+    // document.getElementById('send-btn').addEventListener('click', function() {
+    //     document.getElementById('response').setAttribute('placeholder', "Procesando su consulta...");
+    //     //let rubro = document.getElementById('rubro-select').value;
+    //     //let tema = document.getElementById('tema-select').value;
+    //     let query = document.getElementById('query').value;
+
+    //     //const divOptions = document.getElementById('query-options');
+    //     //const textQuery = document.getElementById('query');
+    //     //
+    //     //if (!textQuery.classList.contains('hidden') && query.trim() === '') {
+    //     //    alert('El campo de consulta es requerido.');
+    //     //    return;
+    //     //}
+    //     //
+    //     //if (!divOptions.classList.contains('hidden')) {
+    //     //    if (rubro === '') {
+    //     //        alert('El rubro es requerido.');
+    //     //        return;
+    //     //    }
+    //     //    if (tema === '') {
+    //     //        alert('El tema es requerido.');
+    //     //        return;
+    //     //    }
+    //     //}
+    //     fetch('{{ route('ask.gpt') }}', {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //             'X-CSRF-TOKEN': '{{ csrf_token() }}'
+    //         },
+    //         body: JSON.stringify({
+    //             rubro: rubro,
+    //             tema: tema,
+    //             query: query
+    //         })
+    //     })
+    //     .then(response => response.json())
+    //     .then(data => {
+    //         document.getElementById('response').value = data.response;
+    //     })
+    //     .catch(error => console.error('Error:', error));
+    // });
+    // const toggleButton = document.getElementById('toggle-button');
+    
+    //function personalizarConsulta() {
+    //    const divOptions = document.getElementById('query-options');
+    //    const TextQuery = document.getElementById('query');
+    //    const span = document.getElementById('toggle-span');
+    //  
+    //    if(divOptions.classList.contains('hidden')) {
+    //        divOptions.classList.remove('hidden');
+    //        TextQuery.classList.add('hidden');
+    //        span.classList.remove('dark:text-gray-200');
+    //        span.classList.add('dark:text-gray-500');
+    //    }else {
+    //        if(TextQuery.classList.contains('hidden')) {
+    //            TextQuery.classList.remove('hidden');
+    //            divOptions.classList.add('hidden');
+    //            span.classList.remove('dark:text-gray-500');
+    //            span.classList.add('dark:text-gray-200');
+    //        }
+    //    }
+    //}
 </script>
