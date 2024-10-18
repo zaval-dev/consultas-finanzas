@@ -18,8 +18,6 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
-    
-    #Route::post('/establece-rubro/{rubro}', [DashboardController::class, 'updateRubro'])->name('establecerRubro');
 
     Route::get('/estrategias', function () {
         return view('pages.estrategias');
