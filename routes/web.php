@@ -28,26 +28,7 @@ Route::middleware([
     Route::get('/riesgos', function () {
         return view('pages.riesgos');
     })->name('riesgos');
-
-    // Route::get('/crm', function () {
-    //     return view('pages.crm');
-    // })->name('crm');
-
-    // Route::get('/rendimiento', function () {
-    //     return view('pages.rendimiento');
-    // })->name('rendimiento');
-
-    // Route::get('/rse', function () {
-    //     return view('pages.rse');
-    // })->name('rse');
-
-    // Route::get('/cmi', function () {
-    //     return view('pages.cmi');
-    // })->name('cmi');
-    // Route::get('/first-welcome', function () {
-    //     return view('pages.configuracion-inicial');
-    // })->name('configuracion-inicial');
-
+    
     // Ruta para manejar la consulta a GPT
     Route::post('/ask-gpt', [ChatGPTController::class, 'askGPT'])->name('ask.gpt');
 });

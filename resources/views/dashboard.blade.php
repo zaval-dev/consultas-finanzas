@@ -95,62 +95,6 @@
                                         preparando a la empresa para mitigar impactos potenciales.</p>
                                 </div>
                             </a>
-
-                            {{-- <!-- Card 3 -->
-                            <a href="{{ route('crm') }}" :active="request() - > routeIs('crm')"
-                                class="card flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row lg:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                                <img class="object-cover w-full rounded-t-lg h-80 md:h-full md:w-48 md:rounded-none md:rounded-s-lg"
-                                    src="/img/gdc.webp" alt="">
-                                <div class="flex flex-col justify-between p-4 leading-normal">
-                                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                        Gestión de Clientes</h5>
-                                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Una gestión efectiva de
-                                        clientes mejora la satisfacción y fidelización, fortaleciendo la relación con
-                                        los clientes y promoviendo el crecimiento del negocio.</p>
-                                </div>
-                            </a>
-
-                            <!-- Card 4 -->
-                            <a href="{{ route('rendimiento') }}" :active="request() - > routeIs('rendimiento')"
-                                class="card flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row lg:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                                <img class="object-cover w-full rounded-t-lg h-80 md:h-full md:w-48 md:rounded-none md:rounded-s-lg"
-                                    src="/img/rendimiento.webp" alt="">
-                                <div class="flex flex-col justify-between p-4 leading-normal">
-                                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                        Gestión de Rendimiento</h5>
-                                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Optimiza el desempeño
-                                        de los empleados mediante evaluaciones continuas, alineando sus esfuerzos con
-                                        los objetivos estratégicos de la organización.</p>
-                                </div>
-                            </a>
-
-                            <!-- Card 5 -->
-                            <a href="{{ route('rse') }}" :active="request() - > routeIs('rse')"
-                                class="card flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row lg:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                                <img class="object-cover w-full rounded-t-lg h-80 md:h-full md:w-48 md:rounded-none md:rounded-s-lg"
-                                    src="/img/rse.webp" alt="">
-                                <div class="flex flex-col justify-between p-4 leading-normal">
-                                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                        Responsabilidad Social Empresarial</h5>
-                                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">La RSE permite a las
-                                        empresas contribuir positivamente al entorno social y ambiental, fortaleciendo
-                                        su reputación y lealtad de los clientes.</p>
-                                </div>
-                            </a>
-
-                            <!-- Card 6 -->
-                            <a href="{{ route('cmi') }}" :active="request() - > routeIs('cmi')"
-                                class="card flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row lg:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                                <img class="object-cover w-full rounded-t-lg h-80 md:h-full md:w-48 md:rounded-none md:rounded-s-lg"
-                                    src="/img/cmi.webp" alt="">
-                                <div class="flex flex-col justify-between p-4 leading-normal">
-                                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                        Cuadro de Mando Integral</h5>
-                                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">El Cuadro de Mando
-                                        Integral alinea los objetivos organizacionales en cuatro perspectivas clave,
-                                        facilitando decisiones estratégicas y sostenibles a largo plazo.</p>
-                                </div>
-                            </a> --}}
                         </div>
                     </section>
                 </div>
