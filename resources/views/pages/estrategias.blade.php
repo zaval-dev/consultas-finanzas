@@ -340,83 +340,459 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg">
-                {{-- <x-welcome /> --}}
                 <div
                     class="p-6 lg:p-8 bg-white dark:bg-gray-800 dark:bg-gradient-to-bl dark:from-gray-700/50 dark:via-transparent border-b border-gray-200 dark:border-gray-700">
                     <section id="cards-section" class="my-8">
                         <div class="grid gap-6">
-                            <!-- Card 1 -->
-                            <a href="{{ route('estrategias') }}" :active="request() - > routeIs('estrategias')"
-                                class="card flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                                <div class="flex flex-col justify-between p-4 leading-normal">
+                            <!-- Card 1: FSC -->
+                            <div class="card flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row dark:border-gray-700 dark:bg-gray-800">
+                                <div class="flex flex-col justify-between p-4 leading-normal w-full">
                                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                        Estrategias</h5>
-                                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Se exploran aspectos
-                                        clave como la formulación y selección de estrategias, utilizando herramientas
-                                        esenciales que permiten tomar decisiones fundamentadas en entornos inciertos.
+                                        Factor Simple de Capitalización (FSC)</h5>
+                                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                                        Transformación de un Stock Inicial en un Stock Final
                                     </p>
+                                    <form class="flex flex-col gap-4">
+                                        <div class="grid grid-cols-1 grid-rows-7 md:grid-cols-4 md:grid-rows-3 gap-4">
+                                            <div class="flex flex-col md:col-span-2">
+                                                <label for="P1" class="text-gray-700 dark:text-gray-400">Valor Presente (P):</label>
+                                                <input type="number" id="P1" name="P1" class="mt-1 p-2 border border-gray-300 rounded" required>
+                                            </div>
+                                            <div class="flex flex-col md:col-start-3">
+                                                <label for="n1" class="text-gray-700 dark:text-gray-400">Período (n):</label>
+                                                <input type="number" id="n1" name="n1" class="mt-1 p-2 border border-gray-300 rounded" required>
+                                            </div>
+                                            <div class="flex flex-col md:col-start-4 mt-4 md:mt-7">
+                                                <select id="m1" name="m1" class="p-2 border border-gray-300 rounded" required>
+                                                    <option value="diaria">Dias</option>
+                                                    <option value="semanal">Semanas</option>
+                                                    <option value="mensual">Meses</option>
+                                                    <option value="bimestral">Bimestres</option>
+                                                    <option value="trimestral">Trimestres</option>
+                                                    <option value="semestral">Semestres</option>
+                                                    <option value="anual" selected>Años</option>
+                                                </select>
+                                            </div>
+                                            <div class="flex flex-col md:row-start-2">
+                                                <label for="i1" class="text-gray-700 dark:text-gray-400">Tasa de Interés (i):</label>
+                                                <input type="number" id="i1" name="i1" step="0.01" class="mt-1 p-2 border border-gray-300 rounded" required>
+                                            </div>
+                                            <div class="flex flex-col md:row-start-2 mt-4 md:mt-7">
+                                                <select id="frecuencia1" name="frecuencia1" class="p-2 border border-gray-300 rounded" required>
+                                                    <option value="diaria">Diaria</option>
+                                                    <option value="semanal">Semanal</option>
+                                                    <option value="mensual">Mensual</option>
+                                                    <option value="bimestral">Bimestral</option>
+                                                    <option value="trimestral">Trimestral</option>
+                                                    <option value="semestral">Semestral</option>
+                                                    <option value="anual" selected>Anual</option>
+                                                </select>
+                                            </div>
+                                            <div class="flex flex-col md:row-start-2">
+                                                <label for="capitalizacion1" class="text-gray-700 dark:text-gray-400">Capitalización:</label>
+                                                <select id="capitalizacion1" name="capitalizacion1" class="mt-1 p-2 border border-gray-300 rounded" required>
+                                                    <option value="diaria">Diaria</option>
+                                                    <option value="semanal">Semanal</option>
+                                                    <option value="mensual">Mensual</option>
+                                                    <option value="bimestral">Bimestral</option>
+                                                    <option value="trimestral">Trimestral</option>
+                                                    <option value="semestral">Semestral</option>
+                                                    <option value="anual" selected>Anual</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="md:row-start-2"><button type="submit" class="mt-4 p-2 bg-indigo-600 text-white rounded w-full md:mt-7">Calcular</button></div>
+                                            <div class="flex flex-col md:col-span-4">
+                                                <label for="resultado1" class="text-gray-700 dark:text-gray-400">Resultado:</label>
+                                                <input type="number" id="resultado1" name="resultado" class="mt-1 p-2 border bg-white rounded" readonly>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
-                            </a>
-                            <a href="{{ route('estrategias') }}" :active="request() - > routeIs('estrategias')"
-                                class="card flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                                <div class="flex flex-col justify-between p-4 leading-normal">
+                            </div>
+
+                            <!-- Card 2: FSA -->
+                            <div class="card flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row dark:border-gray-700 dark:bg-gray-800">
+                                <div class="flex flex-col justify-between p-4 leading-normal w-full">
                                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                        Estrategias</h5>
-                                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Se exploran aspectos
-                                        clave como la formulación y selección de estrategias, utilizando herramientas
-                                        esenciales que permiten tomar decisiones fundamentadas en entornos inciertos.
+                                        Factor Simple de Actualización (FSA)</h5>
+                                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                                        Transformación de un Stock Final en un Stock Inicial
                                     </p>
+                                    <form class="flex flex-col gap-4">
+                                        <div class="grid grid-cols-1 grid-rows-7 md:grid-cols-4 md:grid-rows-3 gap-4">
+                                            <div class="flex flex-col md:col-span-2">
+                                                <label for="S2" class="text-gray-700 dark:text-gray-400">Valor Futuro (S):</label>
+                                                <input type="number" id="S2" name="S2" class="mt-1 p-2 border border-gray-300 rounded" required>
+                                            </div>
+                                            <div class="flex flex-col md:col-start-3">
+                                                <label for="n2" class="text-gray-700 dark:text-gray-400">Período (n):</label>
+                                                <input type="number" id="n2" name="n2" class="mt-1 p-2 border border-gray-300 rounded" required>
+                                            </div>
+                                            <div class="flex flex-col md:col-start-4 mt-4 md:mt-7">
+                                                <select id="m2" name="m2" class="p-2 border border-gray-300 rounded" required>
+                                                    <option value="diaria">Dias</option>
+                                                    <option value="semanal">Semanas</option>
+                                                    <option value="mensual">Meses</option>
+                                                    <option value="bimestral">Bimestres</option>
+                                                    <option value="trimestral">Trimestres</option>
+                                                    <option value="semestral">Semestres</option>
+                                                    <option value="anual" selected>Años</option>
+                                                </select>
+                                            </div>
+                                            <div class="flex flex-col md:row-start-2">
+                                                <label for="i2" class="text-gray-700 dark:text-gray-400">Tasa de Interés (i):</label>
+                                                <input type="number" id="i2" name="i2" step="0.01" class="mt-1 p-2 border border-gray-300 rounded" required>
+                                            </div>
+                                            <div class="flex flex-col md:row-start-2 mt-4 md:mt-7">
+                                                <select id="frecuencia2" name="frecuencia2" class="p-2 border border-gray-300 rounded" required>
+                                                    <option value="diaria">Diaria</option>
+                                                    <option value="semanal">Semanal</option>
+                                                    <option value="mensual">Mensual</option>
+                                                    <option value="bimestral">Bimestral</option>
+                                                    <option value="trimestral">Trimestral</option>
+                                                    <option value="semestral">Semestral</option>
+                                                    <option value="anual" selected>Anual</option>
+                                                </select>
+                                            </div>
+                                            <div class="flex flex-col md:row-start-2">
+                                                <label for="capitalizacion2" class="text-gray-700 dark:text-gray-400">Capitalización:</label>
+                                                <select id="capitalizacion2" name="capitalizacion2" class="mt-1 p-2 border border-gray-300 rounded" required>
+                                                    <option value="diaria">Diaria</option>
+                                                    <option value="semanal">Semanal</option>
+                                                    <option value="mensual">Mensual</option>
+                                                    <option value="bimestral">Bimestral</option>
+                                                    <option value="trimestral">Trimestral</option>
+                                                    <option value="semestral">Semestral</option>
+                                                    <option value="anual" selected>Anual</option>
+                                                </select>
+                                            </div>
+                                            <div class="md:row-start-2"><button type="submit" class="mt-4 p-2 bg-indigo-600 text-white rounded w-full md:mt-7">Calcular</button></div>
+                                            <div class="flex flex-col md:col-span-4">
+                                                <label for="resultado2" class="text-gray-700 dark:text-gray-400">Resultado:</label>
+                                                <input type="number" id="resultado2" name="resultado2" class="mt-1 p-2 border bg-white rounded" readonly>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
-                            </a>
-                            <a href="{{ route('estrategias') }}" :active="request() - > routeIs('estrategias')"
-                                class="card flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                                <div class="flex flex-col justify-between p-4 leading-normal">
+                            </div>
+
+                            <!-- Card 3: FRC -->
+                            <div class="card flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row dark:border-gray-700 dark:bg-gray-800">
+                                <div class="flex flex-col justify-between p-4 leading-normal w-full">
                                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                        Estrategias</h5>
-                                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Se exploran aspectos
-                                        clave como la formulación y selección de estrategias, utilizando herramientas
-                                        esenciales que permiten tomar decisiones fundamentadas en entornos inciertos.
+                                        Factor de Recuperación de Capital (FRC)</h5>
+                                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                                        Transformación de un Stock Inicial en un Flujo Constante
                                     </p>
+                                    <form class="flex flex-col gap-4">
+                                        <div class="grid grid-cols-1 grid-rows-7 md:grid-cols-4 md:grid-rows-3 gap-4">
+                                            <div class="flex flex-col md:col-span-2">
+                                                <label for="P3" class="text-gray-700 dark:text-gray-400">Valor Presente (P):</label>
+                                                <input type="number" id="P3" name="P3" class="mt-1 p-2 border border-gray-300 rounded" required>
+                                            </div>
+                                            <div class="flex flex-col md:col-start-3">
+                                                <label for="n3" class="text-gray-700 dark:text-gray-400">Período (n):</label>
+                                                <input type="number" id="n3" name="n3" class="mt-1 p-2 border border-gray-300 rounded" required>
+                                            </div>
+                                            <div class="flex flex-col md:col-start-4 mt-4 md:mt-7">
+                                                <select id="m3" name="m3" class="p-2 border border-gray-300 rounded" required>
+                                                    <option value="diaria">Dias</option>
+                                                    <option value="semanal">Semanas</option>
+                                                    <option value="mensual">Meses</option>
+                                                    <option value="bimestral">Bimestres</option>
+                                                    <option value="trimestral">Trimestres</option>
+                                                    <option value="semestral">Semestres</option>
+                                                    <option value="anual" selected>Años</option>
+                                                </select>
+                                            </div>
+                                            <div class="flex flex-col md:row-start-2">
+                                                <label for="i3" class="text-gray-700 dark:text-gray-400">Tasa de Interés (i):</label>
+                                                <input type="number" id="i3" name="i3" step="0.01" class="mt-1 p-2 border border-gray-300 rounded" required>
+                                            </div>
+                                            <div class="flex flex-col md:row-start-2 md:col-span-2 mt-4 md:mt-7">
+                                                <select id="frecuencia3" name="frecuencia3" class="p-2 border border-gray-300 rounded" required>
+                                                    <option value="diaria">Diaria</option>
+                                                    <option value="semanal">Semanal</option>
+                                                    <option value="mensual">Mensual</option>
+                                                    <option value="bimestral">Bimestral</option>
+                                                    <option value="trimestral">Trimestral</option>
+                                                    <option value="semestral">Semestral</option>
+                                                    <option value="anual" selected>Anual</option>
+                                                </select>
+                                            </div>
+                                            {{-- <div class="flex flex-col md:row-start-2">
+                                                <label for="capitalizacion3" class="text-gray-700 dark:text-gray-400">Capitalización:</label>
+                                                <select id="capitalizacion3" name="capitalizacion3" class="mt-1 p-2 border border-gray-300 rounded" required>
+                                                    <option value="diaria">Diaria</option>
+                                                    <option value="semanal">Semanal</option>
+                                                    <option value="mensual">Mensual</option>
+                                                    <option value="bimestral">Bimestral</option>
+                                                    <option value="trimestral">Trimestral</option>
+                                                    <option value="semestral">Semestral</option>
+                                                    <option value="anual" selected>Anual</option>
+                                                </select>
+                                            </div> --}}
+                                            <div class="md:row-start-2"><button type="submit" class="mt-4 p-2 bg-indigo-600 text-white rounded w-full md:mt-7">Calcular</button></div>
+                                            <div class="flex flex-col">
+                                                <label for="l3" class="text-gray-700 dark:text-gray-400">Flujo:</label>
+                                                <select id="l3" name="l3" class="mt-1 p-2 border border-gray-300 rounded" required>
+                                                    <option value="diaria">Diaria</option>
+                                                    <option value="semanal">Semanal</option>
+                                                    <option value="mensual">Mensual</option>
+                                                    <option value="bimestral">Bimestral</option>
+                                                    <option value="trimestral">Trimestral</option>
+                                                    <option value="semestral">Semestral</option>
+                                                    <option value="anual" selected>Anual</option>
+                                                </select>
+                                            </div>
+                                            <div class="flex flex-col md:col-span-3">
+                                                <label for="resultado3" class="text-gray-700 dark:text-gray-400">Resultado:</label>
+                                                <input type="number" id="resultado3" name="resultado3" class="mt-1 p-2 border bg-white rounded" readonly>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
-                            </a>
-                            <a href="{{ route('estrategias') }}" :active="request() - > routeIs('estrategias')"
-                                class="card flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                                <div class="flex flex-col justify-between p-4 leading-normal">
+                            </div>
+
+                            <!-- Card 4: FAS -->
+                            <div class="card flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row dark:border-gray-700 dark:bg-gray-800">
+                                <div class="flex flex-col justify-between p-4 leading-normal w-full">
                                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                        Estrategias</h5>
-                                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Se exploran aspectos
-                                        clave como la formulación y selección de estrategias, utilizando herramientas
-                                        esenciales que permiten tomar decisiones fundamentadas en entornos inciertos.
+                                        Factor de Actualización de la Serie (FAS)</h5>
+                                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                                        Transformación de un Flujo Constante en un Stock Inicial
                                     </p>
+                                    <form class="flex flex-col gap-4">
+                                        <div class="grid grid-cols-1 grid-rows-7 md:grid-cols-4 md:grid-rows-3 gap-4">
+                                            <div class="flex flex-col">
+                                                <label for="R4" class="text-gray-700 dark:text-gray-400">Flujo Constante (R):</label>
+                                                <input type="number" id="R4" name="R4" class="mt-1 p-2 border border-gray-300 rounded" required>
+                                            </div>
+                                            <div class="flex flex-col mt-4 md:mt-7">
+                                                <select id="c4" name="c4" class="p-2 border border-gray-300 rounded" required>
+                                                    <option value="diaria">Diaria</option>
+                                                    <option value="semanal">Semanal</option>
+                                                    <option value="mensual">Mensual</option>
+                                                    <option value="bimestral">Bimestral</option>
+                                                    <option value="trimestral">Trimestral</option>
+                                                    <option value="semestral">Semestral</option>
+                                                    <option value="anual" selected>Anual</option>
+                                                </select>
+                                            </div>
+                                            <div class="flex flex-col">
+                                                <label for="n4" class="text-gray-700 dark:text-gray-400">Período (n):</label>
+                                                <input type="number" id="n4" name="n4" class="mt-1 p-2 border border-gray-300 rounded" required>
+                                            </div>
+                                            <div class="flex flex-col mt-4 md:mt-7">
+                                                <select id="m4" name="m4" class="p-2 border border-gray-300 rounded" required>
+                                                    <option value="diaria">Dias</option>
+                                                    <option value="semanal">Semanas</option>
+                                                    <option value="mensual">Meses</option>
+                                                    <option value="bimestral">Bimestres</option>
+                                                    <option value="trimestral">Trimestres</option>
+                                                    <option value="semestral">Semestres</option>
+                                                    <option value="anual" selected>Años</option>
+                                                </select>
+                                            </div>
+                                            <div class="flex flex-col">
+                                                <label for="i4" class="text-gray-700 dark:text-gray-400">Tasa de Interés (i):</label>
+                                                <input type="number" id="i4" name="i4" step="0.01" class="mt-1 p-2 border border-gray-300 rounded" required>
+                                            </div>
+                                            <div class="flex flex-col md:col-span-2 mt-4 md:mt-7">
+                                                <select id="frecuencia4" name="frecuencia4" class="p-2 border border-gray-300 rounded" required>
+                                                    <option value="diaria">Diaria</option>
+                                                    <option value="semanal">Semanal</option>
+                                                    <option value="mensual">Mensual</option>
+                                                    <option value="bimestral">Bimestral</option>
+                                                    <option value="trimestral">Trimestral</option>
+                                                    <option value="semestral">Semestral</option>
+                                                    <option value="anual" selected>Anual</option>
+                                                </select>
+                                            </div>
+                                            {{-- <div class="flex flex-col md:row-start-2">
+                                                <label for="capitalizacion4" class="text-gray-700 dark:text-gray-400">Capitalización:</label>
+                                                <select id="capitalizacion4" name="capitalizacion4" class="mt-1 p-2 border border-gray-300 rounded" required>
+                                                    <option value="diaria">Diaria</option>
+                                                    <option value="semanal">Semanal</option>
+                                                    <option value="mensual">Mensual</option>
+                                                    <option value="bimestral">Bimestral</option>
+                                                    <option value="trimestral">Trimestral</option>
+                                                    <option value="semestral">Semestral</option>
+                                                    <option value="anual" selected>Anual</option>
+                                                </select>
+                                            </div> --}}
+                                            <div class="md:col-start-4"><button type="submit" class="mt-4 p-2 bg-indigo-600 text-white rounded w-full md:mt-7">Calcular</button></div>
+                                            <div class="flex flex-col md:col-span-4">
+                                                <label for="resultado4" class="text-gray-700 dark:text-gray-400">Resultado:</label>
+                                                <input type="number" id="resultado4" name="resultado4" class="mt-1 p-2 border bg-white rounded" readonly>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
-                            </a>
-                            <a href="{{ route('estrategias') }}" :active="request() - > routeIs('estrategias')"
-                                class="card flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                                <div class="flex flex-col justify-between p-4 leading-normal">
+                            </div>
+
+                            <!-- Card 5: FCS -->
+                            <div class="card flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row dark:border-gray-700 dark:bg-gray-800">
+                                <div class="flex flex-col justify-between p-4 leading-normal w-full">
                                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                        Estrategias</h5>
-                                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Se exploran aspectos
-                                        clave como la formulación y selección de estrategias, utilizando herramientas
-                                        esenciales que permiten tomar decisiones fundamentadas en entornos inciertos.
+                                        Factor de Capitalización de la Serie (FCS)</h5>
+                                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                                        Transformación de un Flujo Constante en un Stock Final
                                     </p>
+                                    <form class="flex flex-col gap-4">
+                                        <div class="grid grid-cols-1 grid-rows-7 md:grid-cols-4 md:grid-rows-3 gap-4">
+                                            <div class="flex flex-col">
+                                                <label for="R5" class="text-gray-700 dark:text-gray-400">Flujo Constante (R):</label>
+                                                <input type="number" id="R5" name="R5" class="mt-1 p-2 border border-gray-300 rounded" required>
+                                            </div>
+                                            <div class="flex flex-col mt-4 md:mt-7">
+                                                <select id="c5" name="c5" class="p-2 border border-gray-300 rounded" required>
+                                                    <option value="diaria">Diaria</option>
+                                                    <option value="semanal">Semanal</option>
+                                                    <option value="mensual">Mensual</option>
+                                                    <option value="bimestral">Bimestral</option>
+                                                    <option value="trimestral">Trimestral</option>
+                                                    <option value="semestral">Semestral</option>
+                                                    <option value="anual" selected>Anual</option>
+                                                </select>
+                                            </div>
+                                            <div class="flex flex-col">
+                                                <label for="n5" class="text-gray-700 dark:text-gray-400">Período (n):</label>
+                                                <input type="number" id="n5" name="n5" class="mt-1 p-2 border border-gray-300 rounded" required>
+                                            </div>
+                                            <div class="flex flex-col mt-4 md:mt-7">
+                                                <select id="m5" name="m5" class="p-2 border border-gray-300 rounded" required>
+                                                    <option value="diaria">Dias</option>
+                                                    <option value="semanal">Semanas</option>
+                                                    <option value="mensual">Meses</option>
+                                                    <option value="bimestral">Bimestres</option>
+                                                    <option value="trimestral">Trimestres</option>
+                                                    <option value="semestral">Semestres</option>
+                                                    <option value="anual" selected>Años</option>
+                                                </select>
+                                            </div>
+                                            <div class="flex flex-col">
+                                                <label for="i5" class="text-gray-700 dark:text-gray-400">Tasa de Interés (i):</label>
+                                                <input type="number" id="i5" name="i5" step="0.01" class="mt-1 p-2 border border-gray-300 rounded" required>
+                                            </div>
+                                            <div class="flex flex-col md:col-span-2 mt-4 md:mt-7">
+                                                <select id="frecuencia5" name="frecuencia5" class="p-2 border border-gray-300 rounded" required>
+                                                    <option value="diaria">Diaria</option>
+                                                    <option value="semanal">Semanal</option>
+                                                    <option value="mensual">Mensual</option>
+                                                    <option value="bimestral">Bimestral</option>
+                                                    <option value="trimestral">Trimestral</option>
+                                                    <option value="semestral">Semestral</option>
+                                                    <option value="anual" selected>Anual</option>
+                                                </select>
+                                            </div>
+                                            {{-- <div class="flex flex-col md:row-start-2">
+                                                <label for="capitalizacion5" class="text-gray-700 dark:text-gray-400">Capitalización:</label>
+                                                <select id="capitalizacion5" name="capitalizacion5" class="mt-1 p-2 border border-gray-300 rounded" required>
+                                                    <option value="diaria">Diaria</option>
+                                                    <option value="semanal">Semanal</option>
+                                                    <option value="mensual">Mensual</option>
+                                                    <option value="bimestral">Bimestral</option>
+                                                    <option value="trimestral">Trimestral</option>
+                                                    <option value="semestral">Semestral</option>
+                                                    <option value="anual" selected>Anual</option>
+                                                </select>
+                                            </div> --}}
+                                            <div class="md:col-start-4"><button type="submit" class="mt-4 p-2 bg-indigo-600 text-white rounded w-full md:mt-7">Calcular</button></div>
+                                            <div class="flex flex-col md:col-span-4">
+                                                <label for="resultado5" class="text-gray-700 dark:text-gray-400">Resultado:</label>
+                                                <input type="number" id="resultado5" name="resultado5" class="mt-1 p-2 border bg-white rounded" readonly>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
-                            </a>
-                            <a href="{{ route('estrategias') }}" :active="request() - > routeIs('estrategias')"
-                                class="card flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                                <div class="flex flex-col justify-between p-4 leading-normal">
+                            </div>
+
+                            <!-- Card 6: FDFA -->
+                            <div class="card flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row dark:border-gray-700 dark:bg-gray-800">
+                                <div class="flex flex-col justify-between p-4 leading-normal w-full">
                                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                        Estrategias</h5>
-                                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Se exploran aspectos
-                                        clave como la formulación y selección de estrategias, utilizando herramientas
-                                        esenciales que permiten tomar decisiones fundamentadas en entornos inciertos.
+                                        Factor de Depósito del Fondo de Amortización (FDFA)</h5>
+                                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                                        Transformación de un Stock Final en un Flujo Constante
                                     </p>
+                                    <form class="flex flex-col gap-4">
+                                        <div class="grid grid-cols-1 grid-rows-7 md:grid-cols-4 md:grid-rows-3 gap-4">
+                                            <div class="flex flex-col md:col-span-2">
+                                                <label for="S6" class="text-gray-700 dark:text-gray-400">Valor Futuro (S):</label>
+                                                <input type="number" id="S6" name="S6" class="mt-1 p-2 border border-gray-300 rounded" required>
+                                            </div>
+                                            <div class="flex flex-col md:col-start-3">
+                                                <label for="n6" class="text-gray-700 dark:text-gray-400">Período (n):</label>
+                                                <input type="number" id="n6" name="n6" class="mt-1 p-2 border border-gray-300 rounded" required>
+                                            </div>
+                                            <div class="flex flex-col md:col-start-4 mt-4 md:mt-7">
+                                                <select id="m6" name="m6" class="p-2 border border-gray-300 rounded" required>
+                                                    <option value="diaria">Dias</option>
+                                                    <option value="semanal">Semanas</option>
+                                                    <option value="mensual">Meses</option>
+                                                    <option value="bimestral">Bimestres</option>
+                                                    <option value="trimestral">Trimestres</option>
+                                                    <option value="semestral">Semestres</option>
+                                                    <option value="anual" selected>Años</option>
+                                                </select>
+                                            </div>
+                                            <div class="flex flex-col md:row-start-2">
+                                                <label for="i6" class="text-gray-700 dark:text-gray-400">Tasa de Interés (i):</label>
+                                                <input type="number" id="i6" name="i6" step="0.01" class="mt-1 p-2 border border-gray-300 rounded" required>
+                                            </div>
+                                            <div class="flex flex-col md:row-start-2 md:col-span-2 mt-4 md:mt-7">
+                                                <select id="frecuencia6" name="frecuencia6" class="p-2 border border-gray-300 rounded" required>
+                                                    <option value="diaria">Diaria</option>
+                                                    <option value="semanal">Semanal</option>
+                                                    <option value="mensual">Mensual</option>
+                                                    <option value="bimestral">Bimestral</option>
+                                                    <option value="trimestral">Trimestral</option>
+                                                    <option value="semestral">Semestral</option>
+                                                    <option value="anual" selected>Anual</option>
+                                                </select>
+                                            </div>
+                                            {{-- <div class="flex flex-col md:row-start-2">
+                                                <label for="capitalizacion6" class="text-gray-700 dark:text-gray-400">Capitalización:</label>
+                                                <select id="capitalizacion6" name="capitalizacion6" class="mt-1 p-2 border border-gray-300 rounded" required>
+                                                    <option value="diaria">Diaria</option>
+                                                    <option value="semanal">Semanal</option>
+                                                    <option value="mensual">Mensual</option>
+                                                    <option value="bimestral">Bimestral</option>
+                                                    <option value="trimestral">Trimestral</option>
+                                                    <option value="semestral">Semestral</option>
+                                                    <option value="anual" selected>Anual</option>
+                                                </select>
+                                            </div> --}}
+                                            <div class="md:row-start-2"><button type="submit" class="mt-4 p-2 bg-indigo-600 text-white rounded w-full md:mt-7">Calcular</button></div>
+                                            <div class="flex flex-col">
+                                                <label for="l6" class="text-gray-700 dark:text-gray-400">Flujo:</label>
+                                                <select id="l6" name="l6" class="mt-1 p-2 border border-gray-300 rounded" required>
+                                                    <option value="diaria">Diaria</option>
+                                                    <option value="semanal">Semanal</option>
+                                                    <option value="mensual">Mensual</option>
+                                                    <option value="bimestral">Bimestral</option>
+                                                    <option value="trimestral">Trimestral</option>
+                                                    <option value="semestral">Semestral</option>
+                                                    <option value="anual" selected>Anual</option>
+                                                </select>
+                                            </div>
+                                            <div class="flex flex-col md:col-span-3">
+                                                <label for="resultado6" class="text-gray-700 dark:text-gray-400">Resultado:</label>
+                                                <input type="number" id="resultado6" name="resultado6" class="mt-1 p-2 border bg-white rounded" readonly>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
-                            </a>
+                            </div>
                         </div>
                     </section>
                 </div>
             </div>
         </div>
     </div>
+
+    <script src="{{asset('js/calculos.js')}}"></script>
 
 </x-app-layout>
