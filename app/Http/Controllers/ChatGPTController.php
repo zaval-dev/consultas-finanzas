@@ -22,16 +22,10 @@ class ChatGPTController extends Controller
     public function askGPT(Request $request)
     {
         try {
-            $rubro = $request->input('rubro');
-            $tema = $request->input('tema');
             $query = $request->input('query');
 
-            $gptQuery = '';
-
-            if ($rubro && $tema)
-                $gptQuery = "Estoy trabajando en el rubro de $rubro y necesito orientación sobre el tema $tema. ¿Puedes ayudarme (Un tip y ejemplo práctico)?";
-            else 
-                $gptQuery = $query;
+            $gptQuery = "Interpreta estos ratios financieros, que sea ratio por ratio:\n\n";
+            $gptQuery .= $query;
 
             Log::info('Consulta construida: ' . $gptQuery);
 

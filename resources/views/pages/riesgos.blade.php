@@ -56,10 +56,10 @@
                         10- Gastos Financieros
                         11- patrimonio
                         12- Activo no corriente
-                        Rentabilidad 
+                        Rentabilidad
                         13- Utilidad Neta
                         14- Costos de ventas
-                        
+
                         --}}
 
 
@@ -198,7 +198,7 @@
                                         <input type="number" id="costos_ventas" class="bg-transparent cuenta-input w-full px-2 py-1 border rounded-md" step="0.01" placeholder="Completa aquí..." required>
                                     </td>
                                 </tr>
-                                
+
                             </tbody>
                         </table>
 
@@ -218,7 +218,7 @@
     </div>
     <script>
         const button = document.getElementById('confirm-button');
-        
+
         button.addEventListener('click', () => {
             console.log(button.classList);
             if(button.classList.contains('active')) {
@@ -243,7 +243,6 @@
             const promedioActivos = parseFloat(document.getElementById('promedio_activos').value);
             const ventasTotales = parseFloat(document.getElementById('ventas_totales').value);
             const activoFijoNeto = parseFloat(document.getElementById('activo_fijo_neto').value);
-            // const capitalTrabajo = activoCorriente - pasivoCorriente;  // Calculado automáticamente
             const utilidadOperativa = parseFloat(document.getElementById('utilidad_operativa').value);
             const gastosFinancieros = parseFloat(document.getElementById('gastos_financieros').value);
             const patrimonio = parseFloat(document.getElementById('patrimonio').value);
@@ -260,56 +259,24 @@
                 }
             });
             if(!contenidoCompleto){
-                alert('Complete todos las cuentas contables.')
+                alert('Complete todos las cuentas contables.');
                 return;
             }
             /*
-                LIQUIDEZ
+                Cálculos de ratios (similar al código original)
             */
-            // 1. Liquidez General = Activo Corriente / Pasivo Corriente
             const liquidezGeneral = activoCorriente / pasivoCorriente;
-            // 2. Capital de Trabajo (CT) = Activo Corriente - Pasivo Corriente (ya calculado)
             const capitalDeTrabajo = activoCorriente - pasivoCorriente;
-            // 3. Prueba Ácida (PA) = (Activo Corriente - Inventarios) / Pasivo Corriente
             const pruebaAcida = (activoCorriente - inventarios) / pasivoCorriente;
-            
-            /*
-                GESTIÓN
-            */
-
-            // 4. Rotación de Activos = Ventas Netas / Promedio de Activos
             const rotacionActivos = ventasNetas / promedioActivos;
-
-            // 5. Índice de Rotación de Activo Fijo = Ventas / Activo Fijo Neto
             const rotacionActivoFijo = ventasTotales / activoFijoNeto;
-
-            // 6. Índice de Rotación del Capital de Trabajo = Ventas / Capital de Trabajo
             const rotacionCapitalTrabajo = ventasTotales / capitalDeTrabajo;
-
-            /*
-              SOLVENCIA
-            */
-
-            // 7. Cobertura de Gasto de Intereses = Utilidad Operativa / Gastos Financieros
             const coberturaGastosInteres = utilidadOperativa / gastosFinancieros;
-
-            // 8. Cobertura del Activo No Corriente = Patrimonio / Activo No Corriente
             const coberturaActivoNoCorriente = patrimonio / activoNoCorriente;
-
             const indiceDeSolvenciaTotal = activoReal / pasivo;
-
-            /*
-              Rentabilidad
-            */
-
-            // 9. Rentabilidad sobre Capital Propio = Utilidad Neta / Patrimonio
             const rentabilidadCapitalPropio = utilidadNeta / patrimonio;
-
-            // 10. Rentabilidad Margen Comercial = (Ventas Netas - Costo de Ventas) / Ventas Netas
             const rentabilidadMargenComercial = (ventasNetas - costoVentas) / ventasNetas;
-
             const rentabilidadNetaSobreLasVentas = utilidadNeta / ventasNetas;
-            console.log('Terminar de calcular');
 
             const resultadosDiv = document.getElementById('resultados');
             resultadosDiv.innerHTML = `
@@ -330,6 +297,36 @@
                 <p><strong>Rentabilidad Margen Comercial:</strong> ${rentabilidadMargenComercial.toFixed(2)}</p>
                 <p><strong>Rentabilidad Neta sobre las Ventas:</strong> ${rentabilidadNetaSobreLasVentas.toFixed(2)}</p>
             `;
+
+            // Transferir los resultados al textarea 'query' del modal
+            const queryTextarea = document.getElementById('query');
+            queryTextarea.value = resultadosDiv.textContent.trim();
+
+            // Aquí agregamos el código para enviar automáticamente la consulta a GPT
+            enviarConsultaGPT();
         }
+
+        // Función que envía la consulta a GPT automáticamente
+        function enviarConsultaGPT() {
+            document.getElementById('response').setAttribute('placeholder', "Procesando su consulta...");
+            let query = document.getElementById('query').value;
+
+            fetch('{{ route('ask.gpt') }}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                },
+                body: JSON.stringify({
+                    query: query
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('response').value = data.response;
+            })
+            .catch(error => console.error('Error:', error));
+        }
+
     </script>
 </x-app-layout>
